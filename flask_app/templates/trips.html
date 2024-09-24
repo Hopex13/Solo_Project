@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .top-right-buttons {
+            position: absolute;  /* Position relative to the nearest positioned ancestor */
+            top: 10px;           /* Distance from the top */
+            right: 10px;         /* Distance from the right */
+        }
+    
+        .top-right-buttons a {
+            margin-left: 5px;    /* Space between buttons */
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="text-center , text-primary">
+        Available Trips Here !
+    </h1>
+    <div class="top-right-buttons">
+        <a href="/trips" class="btn btn-primary">Booked Flights</a>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+    
+
+    <div class="trip">
+        <h2>Today Trips</h2>
+        <table class="table table-stripe table-bordered">
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Price (Roundtrip)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chicago (ORD)</td>
+                    <td>Miami (MIA)</td>
+                    <td>08:00 AM</td>
+                    <td>12:00 PM</td>
+                    <td>$69</td>
+                </tr>
+                <tr>
+                    <td>Boston (BOS)</td>
+                    <td>Miami (MIA)</td>
+                    <td>09:30 AM</td>
+                    <td>01:30 PM</td>
+                    <td>$71</td>
+                </tr>
+                <tr>
+                    <td>Philadelphia (PHL)</td>
+                    <td>Atlanta (ATL)</td>
+                    <td>07:15 AM</td>
+                    <td>10:00 AM</td>
+                    <td>$43</td>
+                </tr>
+                <tr>
+                    <td>Dallas (DFW)</td>
+                    <td>Los Angeles (LAX)</td>
+                    <td>10:45 AM</td>
+                    <td>01:30 PM</td>
+                    <td>$66</td>
+                </tr>
+                <tr>
+                    <td>San Francisco (SFO)</td>
+                    <td>Los Angeles (LAX)</td>
+                    <td>12:00 PM</td>
+                    <td>01:30 PM</td>
+                    <td>$48</td>
+                </tr>
+                <tr>
+                    <td>New York (JFK)</td>
+                    <td>Orlando (MCO)</td>
+                    <td>06:00 AM</td>
+                    <td>09:00 AM</td>
+                    <td>$82</td>
+                </tr>
+                <tr>
+                    <td>Seattle (SEA)</td>
+                    <td>Las Vegas (LAS)</td>
+                    <td>11:00 AM</td>
+                    <td>01:30 PM</td>
+                    <td>$55</td>
+                </tr>
+                <tr>
+                    <td>Denver (DEN)</td>
+                    <td>Phoenix (PHX)</td>
+                    <td>09:00 AM</td>
+                    <td>11:30 AM</td>
+                    <td>$58</td>
+                </tr>
+                <tr>
+                    <td>Houston (IAH)</td>
+                    <td>San Diego (SAN)</td>
+                    <td>01:00 PM</td>
+                    <td>03:30 PM</td>
+                    <td>$73</td>
+                </tr>
+                <tr>
+                    <td>Atlanta (ATL)</td>
+                    <td>Chicago (ORD)</td>
+                    <td>07:30 AM</td>
+                    <td>09:30 AM</td>
+                    <td>$61</td>
+                </tr>
+                <tr>
+                    <td>Detroit (DTW)</td>
+                    <td>New York (LGA)</td>
+                    <td>05:00 PM</td>
+                    <td>06:45 PM</td>
+                    <td>$67</td>
+                </tr>
+                <tr>
+                    <td>Las Vegas (LAS)</td>
+                    <td>Dallas (DFW)</td>
+                    <td>02:00 PM</td>
+                    <td>06:00 PM</td>
+                    <td>$79</td>
+                </tr>
+                <tr>
+                    <td>Charlotte (CLT)</td>
+                    <td>Miami (MIA)</td>
+                    <td>08:30 AM</td>
+                    <td>10:30 AM</td>
+                    <td>$65</td>
+                </tr>
+                <tr>
+                    <td>Phoenix (PHX)</td>
+                    <td>San Francisco (SFO)</td>
+                    <td>10:00 AM</td>
+                    <td>12:30 PM</td>
+                    <td>$59</td>
+                </tr>
+                <tr>
+                    <td>Orlando (MCO)</td>
+                    <td>Newark (EWR)</td>
+                    <td>03:00 PM</td>
+                    <td>06:00 PM</td>
+                    <td>$72</td>
+                </tr>
+                <tr>
+                    <td>San Diego (SAN)</td>
+                    <td>Seattle (SEA)</td>
+                    <td>11:30 AM</td>
+                    <td>02:30 PM</td>
+                    <td>$77</td>
+                </tr>
+                <tr>
+                    <td>Los Angeles (LAX)</td>
+                    <td>Boston (BOS)</td>
+                    <td>09:00 PM</td>
+                    <td>05:30 AM</td>
+                    <td>$115</td>
+                </tr>
+                <tr>
+                    <td>Portland (PDX)</td>
+                    <td>Las Vegas (LAS)</td>
+                    <td>02:45 PM</td>
+                    <td>05:00 PM</td>
+                    <td>$54</td>
+                </tr>
+                <tr>
+                    <td>Minneapolis (MSP)</td>
+                    <td>Denver (DEN)</td>
+                    <td>07:15 PM</td>
+                    <td>09:00 PM</td>
+                    <td>$83</td>
+                </tr>
+                <tr>
+                    <td>Washington D.C. (DCA)</td>
+                    <td>Chicago (ORD)</td>
+                    <td>06:30 AM</td>
+                    <td>08:00 AM</td>
+                    <td>$68</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Tomorrow Trips</h2>
+        <br>
+        <table class="table table-stripe table-bordered">
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Price (Roundtrip)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Miami (MIA)</td>
+                    <td>New York (JFK)</td>
+                    <td>07:00 AM</td>
+                    <td>10:00 AM</td>
+                    <td>$78</td>
+                </tr>
+                <tr>
+                    <td>Atlanta (ATL)</td>
+                    <td>Los Angeles (LAX)</td>
+                    <td>08:00 AM</td>
+                    <td>10:30 AM</td>
+                    <td>$99</td>
+                </tr>
+                <tr>
+                    <td>Houston (IAH)</td>
+                    <td>Orlando (MCO)</td>
+                    <td>11:00 AM</td>
+                    <td>01:45 PM</td>
+                    <td>$83</td>
+                </tr>
+                <tr>
+                    <td>San Francisco (SFO)</td>
+                    <td>Seattle (SEA)</td>
+                    <td>09:30 AM</td>
+                    <td>11:30 AM</td>
+                    <td>$68</td>
+                </tr>
+                <tr>
+                    <td>Chicago (ORD)</td>
+                    <td>Denver (DEN)</td>
+                    <td>10:45 AM</td>
+                    <td>12:30 PM</td>
+                    <td>$88</td>
+                </tr>
+                <tr>
+                    <td>Boston (BOS)</td>
+                    <td>Washington D.C. (DCA)</td>
+                    <td>01:30 PM</td>
+                    <td>03:00 PM</td>
+                    <td>$57</td>
+                </tr>
+                <tr>
+                    <td>Las Vegas (LAS)</td>
+                    <td>Salt Lake City (SLC)</td>
+                    <td>02:15 PM</td>
+                    <td>03:45 PM</td>
+                    <td>$48</td>
+                </tr>
+                <tr>
+                    <td>Newark (EWR)</td>
+                    <td>Charlotte (CLT)</td>
+                    <td>07:00 PM</td>
+                    <td>09:00 PM</td>
+                    <td>$62</td>
+                </tr>
+                <tr>
+                    <td>Minneapolis (MSP)</td>
+                    <td>Detroit (DTW)</td>
+                    <td>06:00 AM</td>
+                    <td>08:00 AM</td>
+                    <td>$53</td>
+                </tr>
+                <tr>
+                    <td>Phoenix (PHX)</td>
+                    <td>Houston (IAH)</td>
+                    <td>05:30 PM</td>
+                    <td>08:45 PM</td>
+                    <td>$94</td>
+                </tr>
+                <tr>
+                    <td>Dallas (DFW)</td>
+                    <td>San Francisco (SFO)</td>
+                    <td>08:00 AM</td>
+                    <td>10:30 AM</td>
+                    <td>$105</td>
+                </tr>
+                <tr>
+                    <td>Portland (PDX)</td>
+                    <td>Denver (DEN)</td>
+                    <td>12:15 PM</td>
+                    <td>02:30 PM</td>
+                    <td>$75</td>
+                </tr>
+                <tr>
+                    <td>Philadelphia (PHL)</td>
+                    <td>Chicago (ORD)</td>
+                    <td>09:30 AM</td>
+                    <td>11:00 AM</td>
+                    <td>$65</td>
+                </tr>
+                <tr>
+                    <td>Salt Lake City (SLC)</td>
+                    <td>Phoenix (PHX)</td>
+                    <td>04:00 PM</td>
+                    <td>05:30 PM</td>
+                    <td>$57</td>
+                </tr>
+                <tr>
+                    <td>Los Angeles (LAX)</td>
+                    <td>Denver (DEN)</td>
+                    <td>07:00 AM</td>
+                    <td>09:30 AM</td>
+                    <td>$72</td>
+                </tr>
+                <tr>
+                    <td>Atlanta (ATL)</td>
+                    <td>San Diego (SAN)</td>
+                    <td>02:30 PM</td>
+                    <td>05:00 PM</td>
+                    <td>$85</td>
+                </tr>
+                <tr>
+                    <td>Miami (MIA)</td>
+                    <td>Charlotte (CLT)</td>
+                    <td>06:15 PM</td>
+                    <td>08:15 PM</td>
+                    <td>$54</td>
+                </tr>
+                <tr>
+                    <td>New York (JFK)</td>
+                    <td>Houston (IAH)</td>
+                    <td>09:00 AM</td>
+                    <td>12:00 PM</td>
+                    <td>$97</td>
+                </tr>
+                <tr>
+                    <td>Orlando (MCO)</td>
+                    <td>Pittsburgh (PIT)</td>
+                    <td>11:45 AM</td>
+                    <td>02:15 PM</td>
+                    <td>$66</td>
+                </tr>
+                <tr>
+                    <td>Denver (DEN)</td>
+                    <td>Minneapolis (MSP)</td>
+                    <td>03:00 PM</td>
+                    <td>05:30 PM</td>
+                    <td>$74</td>
+                </tr>
+            </tbody>
+        </table>
+        
+
+    </div>
+
+    
+</body>
+</html>
