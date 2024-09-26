@@ -53,7 +53,9 @@ def dashboard():
         return redirect('/')
     user = User.get_by_id({'id': session['user_id']})
     all_trips = Trip.get_all_trips()
+    print (all_trips[1].flight_class)
     return render_template("dashboard.html", user=user ,all_trips=all_trips)
+
 
 #================= Action Routes ==================
 @app.route('/logout')

@@ -22,7 +22,9 @@ def create_trip():
         **request.form,
         'user_id': session['user_id']
         
+        
     }
+    print (trip_data)
     Trip.create_trip(trip_data)
     return redirect('/trips')
 
@@ -34,6 +36,31 @@ def show_one_trip(trip_id):
     trip = Trip.get_trips_by_id({'id': trip_id})
     user = User.get_by_id({'id': session['user_id']})
     return render_template('details.html', trip=trip, user=user )
+#==================== Display Route ==============================
+
+@app.route('/trips/edit/<int:trip_id>')
+def edit_trip_form(trip_id):
+    if 'user_id' not in session:
+        return redirect('/')
+    trip = Trip.get_trips_by_id({'id': trip_id})
+    session['trip_id'] = trip_id
+    return render_template('trip_edit.html', trip=trip)
+
+
+#==================== Actions Route ==============================
+
+@app.route('/trips/update/<int:trip_id>', methods=['GET', 'POST'])
+def update_trip(trip_id):
+    if 'user_id' not in session:
+        return redirect('/')
+    if not Trip.validate_trip(request.form):
+        return redirect(f'/trip/edit/{trip_id}')
+    trip_data = {
+        **request.form,
+        'id': trip_id
+    }
+    Trip.update_trip(trip_data)
+    return redirect('/trips')
 
 
 

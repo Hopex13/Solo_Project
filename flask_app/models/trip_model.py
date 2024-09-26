@@ -26,8 +26,9 @@ class Trip:
         results = connectToMySQL(DB).query_db(query)
         trips = []
         for trip in results:
-            trip['flight_class'] = trip['flight_class'].strip('[]').strip("'")  # Ensure it's a string, not a list or dict-like
+            # trip['flight_class'] = trip['flight_class'].strip('[]').strip("'")  # Ensure it's a string, not a list or dict-like
             trips.append(cls(trip))
+        print (trips[1])
         return trips
         
     
@@ -44,7 +45,15 @@ class Trip:
     @classmethod
     def create_trip(cls, data):
         
-        query = "INSERT INTO trips (full_name, destination, date, rate, user_id, flight_class) VALUES (%(full_name)s, %(destination)s, %(date)s, %(rate)s, %(user_id)s,%(flight_class)s)"
+        query = "INSERT INTO trips (full_name, destination, date,flight_class, rate, user_id, ) VALUES (%(full_name)s, %(destination)s, %(date)s,%(flight_class)s, %(rate)s, %(user_id)s)"
+        results = connectToMySQL(DB).query_db(query, data)
+        return results
+    
+
+
+    @classmethod
+    def update_trip(cls,data):
+        query = "UPDATE trips SET full_name=%(full_name)s, destination=%(destination)s, date=%(date)s, rate=%(rate)s, flight_class=%(flight_class)s WHERE id=%(id)s"
         results = connectToMySQL(DB).query_db(query, data)
         return results
     
@@ -62,20 +71,20 @@ class Trip:
       
     @staticmethod
     def validate_trip(data):
-        is_valid = True
-        if len(data['full_name']) < 3:
-            flash("Full Name must be at least 3 characters", "register")
-            is_valid = False
-
-
-        if len(data['destination']) < 3:
-            flash("Destination must be at least 3 characters", "register")
-            is_valid = False
-        
-        
-        if len(data['rate']) < 3:
-            flash("Rate must be at least 3 characters", "register")
-            is_valid = False
-        return is_valid
-
+        if not data['full_name']:
+            flash("Full Name is required.")
+            return False
+        if not data['destination']:
+            flash("Destination is required.")
+            return False
+        if not data['date']:
+            flash("Date is required.")
+            return False
+        if not data['rate']:
+            flash("Rate is required.")
+            return False
+        if not data['flight_class']:
+            flash("Flight Class is required.")
+            return False
+        return True
    
