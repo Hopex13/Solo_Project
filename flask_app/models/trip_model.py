@@ -28,7 +28,7 @@ class Trip:
         for trip in results:
             # trip['flight_class'] = trip['flight_class'].strip('[]').strip("'")  # Ensure it's a string, not a list or dict-like
             trips.append(cls(trip))
-        print (trips[1])
+        
         return trips
         
     
