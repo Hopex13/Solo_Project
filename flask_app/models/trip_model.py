@@ -12,7 +12,7 @@ class Trip:
         self.full_name = data['full_name']
         self.destination = data['destination']
         self.date = data['date']
-        self.flight_class = ['flight_class']
+        self.flight_class = data['flight_class']
         self.rate = data['rate']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
@@ -45,7 +45,7 @@ class Trip:
     @classmethod
     def create_trip(cls, data):
         
-        query = "INSERT INTO trips (full_name, destination, date,flight_class, rate, user_id, ) VALUES (%(full_name)s, %(destination)s, %(date)s,%(flight_class)s, %(rate)s, %(user_id)s)"
+        query = "INSERT INTO trips (full_name, destination, date,rate, user_id,flight_class  ) VALUES (%(full_name)s, %(destination)s, %(date)s, %(rate)s, %(user_id)s,%(flight_class)s)"
         results = connectToMySQL(DB).query_db(query, data)
         return results
     

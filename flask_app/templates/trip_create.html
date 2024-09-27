@@ -3,61 +3,120 @@
 
 <head>
     <style>
+        /* General body styles */
+        html, body {
+            height: 100%; /* Ensure the body takes the full height */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+        }
+
+        /* Header styling */
+        h3 {
+            color: #007bff;
+            margin-top: 50px;
+            font-weight: bold;
+        }
+
         .top-right-buttons {
-            position: absolute;  /* Position relative to the nearest positioned ancestor */
-            top: 10px;           /* Distance from the top */
-            right: 10px;         /* Distance from the right */
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
-    
+
         .top-right-buttons a {
-            margin-left: 5px;    /* Space between buttons */
+            margin-left: 10px;
+            border-radius: 20px;
+            padding: 10px 20px;
         }
+
         .material-symbols-outlined {
-            font-size: 20px;        /* Adjust the size */
-            vertical-align: middle; /* Align with the text */
-            margin-right: 5px;      /* Space between the icon and text */
+            font-size: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
         }
+
+        /* Form container styles */
+        form {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin: 50px auto;
+            max-width: 800px;
+            flex: 1; /* Allow the form to take remaining space */
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .btn-primary, .btn-success, .btn-danger {
+            background: linear-gradient(90deg, #007bff, #0069d9);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover, .btn-success:hover, .btn-danger:hover {
+            background: linear-gradient(90deg, #0069d9, #0056b3);
+        }
+
+        .btn-primary span, .btn-success span, .btn-danger span {
+            font-size: 18px;
+        }
+
+        /* Styling for the footer */
         footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f1f1f1;
-}
+            background-color: #f1f1f1;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
 
-footer a {
-    text-decoration: none;
-    color: black;
-    display: block;
-    margin: 10px 0;
-}
+        footer a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+            transition: color 0.3s;
+        }
 
-footer a:hover {
-    color: #007bff; /* Optional hover color */
-}
+        footer a:hover {
+            color: #007bff;
+        }
 
-.material-symbols-outlined {
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-
+        footer a span {
+            vertical-align: middle;
+            margin-right: 5px;
+        }
     </style>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Create++</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Flight Booking</title>
 </head>
 
 <body>
 
-
-    <h3 class="text-center , text-danger">
-        Book Your Flight Here !
-    </h3>
-    <br>
-    <br>
+    <!-- Header section -->
+    <h3 class="text-center">Book Your Flight Here!</h3>
+    
+    <!-- Top-right buttons for booked flights and logout -->
     <div class="top-right-buttons">
         <a href="/trips" class="btn btn-primary">
             <span class="material-symbols-outlined">flight</span> Booked Flights
@@ -66,82 +125,74 @@ footer a:hover {
             <span class="material-symbols-outlined">logout</span> Logout
         </a>
     </div>
-    {%for message in get_flashed_messages(category_filter=["trip"])%}
-    <p class="text-danger">{{message}}</p>
-    {%endfor%}
-    
-    
-    
 
-    
-    
-    <form action="/trips/add" method="post" class="row text-center">
-        <div class="col-6">
+    <!-- Flash message section -->
+    {% for message in get_flashed_messages(category_filter=["trip"]) %}
+    <p class="text-danger text-center">{{message}}</p>
+    {% endfor %}
+
+    <!-- Booking form -->
+    <form action="/trips/add" method="post" class="row">
+        <div class="col-md-6">
             <div class="form-group">
-                <label for="">
+                <label for="full_name">
                     <span class="material-symbols-outlined">person</span> Full Name:
                 </label>
-                <input type="text" class="form-control" name="full_name" required>
+                <input type="text" class="form-control" name="full_name" id="full_name" required>
             </div>
             <div class="form-group">
-                <label for="">
+                <label for="destination">
                     <span class="material-symbols-outlined">location_on</span> Flight Destination:
                 </label>
-                <textarea class="form-control" name="destination" required></textarea>
+                <textarea class="form-control" name="destination" id="destination" required></textarea>
             </div>
             <div class="form-group">
-                <label for="">
+                <label for="date">
                     <span class="material-symbols-outlined">event</span> Flight Date:
                 </label>
-                <input type="date" class="form-control" name="date" required>
+                <input type="date" class="form-control" name="date" id="date" required>
             </div>
             <div class="form-group">
                 <label for="class">
                     <span class="material-symbols-outlined">flight_class</span> Flight Class:
                 </label>
-                <br>
                 <select id="class" name="flight_class" class="form-control" required>
-                    <option value="economy">Economy</option>
-                    <option value="business">Business</option>
-                    <option value="first">First Class</option>
+                    <option value="Economy">Economy</option>
+                    <option value="Business">Business</option>
+                    <option value="First Class">First Class</option>
                 </select>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="form-group">
-                <label for="">
-                    <span class="material-symbols-outlined">star_rate</span> Rate Our Services
+                <label for="rate">
+                    <span class="material-symbols-outlined">star_rate</span> Leave a Note Here:
                 </label>
-                <input type="text" class="form-control" name="rate" required>
+                <input type="text" class="form-control" name="rate" id="rate" required>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary mt-4">
                 <span class="material-symbols-outlined">add</span> Add
             </button>
         </div>
-        
-        
     </form>
-    <br>
-    <br>
-    <br>
-    <footer style="text-align: center; padding: 20px; background-color: #f1f1f1;">
-        <a href="#" style="text-decoration: none; color: black;">
+
+    <!-- Footer -->
+    <footer>
+        <a href="#">
             <span class="material-symbols-outlined">support_agent</span> Contact support for any issue
-            <br>
         </a>
-        <a href="#" style="text-decoration: none; color: black;">
+        <a href="#">
             <span class="material-symbols-outlined">report</span> Report a bug here
-            <br>
-            <br>
         </a>
-        <a href="#" style="text-decoration: none; color: black;">
+        <a href="#">
             <span class="material-symbols-outlined">cookie</span> Accept all cookies
         </a>
     </footer>
-    
 
-
-
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 </body>
 

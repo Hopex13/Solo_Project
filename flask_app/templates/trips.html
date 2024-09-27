@@ -1,50 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        .top-right-buttons {
-            position: absolute;  /* Position relative to the nearest positioned ancestor */
-            top: 10px;           /* Distance from the top */
-            right: 10px;         /* Distance from the right */
-        }
-    
-        .top-right-buttons a {
-            margin-left: 5px;    /* Space between buttons */
-        }
-        footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f1f1f1;
-}
-
-footer a {
-    text-decoration: none;
-    color: black;
-    display: block;
-    margin: 10px 0;
-}
-
-footer a:hover {
-    color: #007bff; /* Optional hover color */
-}
-
-.material-symbols-outlined {
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Available Trips</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .top-right-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .top-right-buttons a {
+            margin-left: 10px;
+        }
+
+        .hero {
+            background-image: url('https://source.unsplash.com/1500x400/?travel,airplane,scenery');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            color: rgb(236, 141, 52);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 20px;
+        }
+
+        table {
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            vertical-align: middle;
+        }
+
+        .material-symbols-outlined {
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #d3d3d3;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #007bff;
+        }
+
+        .btn-primary, .btn-danger {
+            border-radius: 30px;
+            padding: 10px 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-danger:hover {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .table th, .table td {
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <h1 class="text-center , text-primary">
-        Available Trips Here !
-    </h1>
+
+    <!-- Hero Section -->
+    <div class="hero" style="color: #6711f3;">
+        <h1>Explore Our Latest Trips</h1>
+        <p>Find the best flights for your next adventure</p>
+    </div>
+
+    <!-- Buttons at the top-right -->
     <div class="top-right-buttons">
         <a href="/trips" class="btn btn-primary">
             <span class="material-symbols-outlined">flight</span> Booked Flights
@@ -53,35 +122,22 @@ footer a:hover {
             <span class="material-symbols-outlined">logout</span> Logout
         </a>
     </div>
-    
-    
 
-    <div class="trip">
-        <h2>
-            <span class="material-symbols-outlined">today</span> today Trips:     
-        </h2>
-        <table class="table table-stripe table-bordered">
-            <thead>
+    <!-- Available Trips Section -->
+    <div class="container">
+        <h2><span class="material-symbols-outlined">today</span> Today's Trips</h2>
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
                 <tr>
-                    <th>
-                        <span class="material-symbols-outlined">flight_takeoff</span> From
-                    </th>
-                    <th>
-                        <span class="material-symbols-outlined">flight_land</span> To
-                    </th>
-                    <th>
-                        <span class="material-symbols-outlined">schedule</span> Departure Time
-                    </th>
-                    <th>
-                        <span class="material-symbols-outlined">access_time</span> Arrival Time
-                    </th>
-                    <th>
-                        <span class="material-symbols-outlined">attach_money</span> Price (Roundtrip)
-                    </th>
+                    <th><span class="material-symbols-outlined">flight_takeoff</span> From</th>
+                    <th><span class="material-symbols-outlined">flight_land</span> To</th>
+                    <th><span class="material-symbols-outlined">schedule</span> Departure Time</th>
+                    <th><span class="material-symbols-outlined">access_time</span> Arrival Time</th>
+                    <th><span class="material-symbols-outlined">attach_money</span> Price (Roundtrip)</th>
                 </tr>
-                
             </thead>
             <tbody>
+                <!-- Example Rows -->
                 <tr>
                     <td>Chicago (ORD)</td>
                     <td>Miami (MIA)</td>
@@ -89,7 +145,7 @@ footer a:hover {
                     <td>12:00 PM</td>
                     <td>$69</td>
                 </tr>
-                <tr>
+                <tr></tr>
                     <td>Boston (BOS)</td>
                     <td>Miami (MIA)</td>
                     <td>09:30 AM</td>
@@ -222,34 +278,23 @@ footer a:hover {
                     <td>08:00 AM</td>
                     <td>$68</td>
                 </tr>
+                <!-- Repeat for each trip -->
             </tbody>
         </table>
-        <h2>
-            <span class="material-symbols-outlined">calendar_today</span> Tomorrow Trips:     
-        </h2>
-        <br>
-        <table class="table table-stripe table-bordered">
-            <thead>
+
+        <h2><span class="material-symbols-outlined">calendar_today</span> Tomorrow's Trips</h2>
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
                 <tr>
-                    <th>
-                        <span class="material-symbols-outlined">flight_takeoff</span> From
-                    </th>
-                    <th>
-                        <span class="material-symbols-outlined">flight_land</span> To
-                    </th>
-                    <th>
-                        <span class="material-symbols-outlined">schedule</span> Departure Time
-                    </th>
-                    <th>
-                        <span class="material-symbols-outlined">access_time</span> Arrival Time
-                    </th>
-                    <th>
-                        <span class="material-symbols-outlined">attach_money</span> Price (Roundtrip)
-                    </th>
+                    <th><span class="material-symbols-outlined">flight_takeoff</span> From</th>
+                    <th><span class="material-symbols-outlined">flight_land</span> To</th>
+                    <th><span class="material-symbols-outlined">schedule</span> Departure Time</th>
+                    <th><span class="material-symbols-outlined">access_time</span> Arrival Time</th>
+                    <th><span class="material-symbols-outlined">attach_money</span> Price (Roundtrip)</th>
                 </tr>
-                
             </thead>
             <tbody>
+                <!-- Example Rows -->
                 <tr>
                     <td>Miami (MIA)</td>
                     <td>New York (JFK)</td>
@@ -257,7 +302,7 @@ footer a:hover {
                     <td>10:00 AM</td>
                     <td>$78</td>
                 </tr>
-                <tr>
+                <tr></tr>
                     <td>Atlanta (ATL)</td>
                     <td>Los Angeles (LAX)</td>
                     <td>08:00 AM</td>
@@ -390,29 +435,20 @@ footer a:hover {
                     <td>05:30 PM</td>
                     <td>$74</td>
                 </tr>
+                <!-- Repeat for each trip -->
             </tbody>
         </table>
-        
-
     </div>
-    <br>
-    <br>
-    <br>
-    <footer style="text-align: center; padding: 20px; background-color: #f1f1f1;">
-        <a href="#" style="text-decoration: none; color: black;">
-            <span class="material-symbols-outlined">support_agent</span> Contact support for any issue
-            <br>
-        </a>
-        <a href="#" style="text-decoration: none; color: black;">
-            <span class="material-symbols-outlined">report</span> Report a bug here
-            <br>
-            <br>
-        </a>
-        <a href="#" style="text-decoration: none; color: black;">
-            <span class="material-symbols-outlined">cookie</span> Accept all cookies
-        </a>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#"><span class="material-symbols-outlined">support_agent</span> Contact support for any issue</a>
+        <a href="#"><span class="material-symbols-outlined">report</span> Report a bug here</a>
+        <a href="#"><span class="material-symbols-outlined">cookie</span> Accept all cookies</a>
     </footer>
 
-    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
