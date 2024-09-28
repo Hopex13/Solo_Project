@@ -108,13 +108,13 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Flight Booking</title>
+    <title>Trip Create</title>
 </head>
 
 <body>
 
     <!-- Header section -->
-    <h3 class="text-center">Book Your Flight Here!</h3>
+    <h3 class="display-4 font-weight-bold text-center" style="text-shadow: 2px 2px 5px rgba(0,0,0,0.2);color: #6711f3;">Book Your Flight Here!</h3>
     
     <!-- Top-right buttons for booked flights and logout -->
     <div class="top-right-buttons">
@@ -131,8 +131,9 @@
     <p class="text-danger text-center">{{message}}</p>
     {% endfor %}
 
-    <!-- Booking form -->
-    <form action="/trips/add" method="post" class="row">
+  <!-- Booking form -->
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <form action="/trips/add" method="post" class="row text-center">
         <div class="col-md-6">
             <div class="form-group">
                 <label for="full_name">
@@ -175,6 +176,8 @@
             </button>
         </div>
     </form>
+</div>
+
 
     <!-- Footer -->
     <footer>
